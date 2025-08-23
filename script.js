@@ -5,7 +5,7 @@ document
   .addEventListener("click", function (event) {
     event.preventDefault();
 
-    const mobileNumber = 01776218402;
+    const mobileNumber = 12345678901;
     const pinNumber = 1234;
 
     const mobileNumberValue = document.getElementById("mobile-number"); // this value will be in string
