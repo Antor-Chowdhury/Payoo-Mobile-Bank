@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Payoo Mobile App</title>
 
+    <!-- css file link -->
+    <link rel="stylesheet" href="./styles/style.css" />
+
     <!-- daisyUI CDN -->
     <link
       href="https://cdn.jsdelivr.net/npm/daisyui@5"
@@ -15,7 +18,34 @@
     <!-- Tailwind CDN -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   </head>
-  <body>
-    <button class="btn btn-secondary">Secondary</button>
+  <body
+    class="bg-[#f4f5f7] h-[100vh] flex justify-center items-center outfit-font"
+  >
+    <form class="w-[400px] bg-white rounded-3xl p-8">
+      <div>
+        <label class="font-medium text-base" for="">Mobile Number</label>
+        <br />
+        <input
+          type="text"
+          placeholder="Enter your number"
+          class="input bg-[#f4f5f7] mt-3 rounded-4xl px-5 py-4 border-none font-light text-base"
+        />
+      </div>
+      <div class="mt-4">
+        <label class="font-medium text-base" for="">4 Digit Pin</label>
+        <br />
+        <input
+          type="text"
+          placeholder="Enter 4 Digit Pin"
+          class="input bg-[#f4f5f7] mt-3 rounded-4xl px-5 py-4 border-none font-light text-base"
+        />
+      </div>
+
+      <button
+        class="btn btn-active w-full mt-4 rounded-4xl font-semibold text-xl border-none bg-[#0874f2] text-white"
+      >
+        Login
+      </button>
+    </form>
   </body>
 </html>
