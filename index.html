@@ -19,9 +19,15 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   </head>
   <body
-    class="bg-[#f4f5f7] h-[100vh] flex justify-center items-center outfit-font"
+    class="bg-[#f4f5f7] h-[100vh] flex flex-col justify-center items-center outfit-font"
   >
-    <form class="w-[400px] bg-white rounded-3xl p-8">
+    <div
+      class="h-[130px] w-[316px] bg-[url(./assets/bg.png)] bg-cover flex justify-center items-center"
+    >
+      <img src="./assets/Group.png" alt="" />
+    </div>
+
+    <form class="w-[390px] bg-white rounded-3xl p-8">
       <div>
         <label class="font-medium text-base" for="">Mobile Number</label>
         <br />
@@ -42,10 +48,15 @@
       </div>
 
       <button
-        class="btn btn-active w-full mt-4 rounded-4xl font-semibold text-xl border-none bg-[#0874f2] text-white"
+        class="btn btn-active w-full mt-4 rounded-4xl bg-[#0874F2] text-white border-none font-semibold text-xl"
+        id="btn-login"
       >
-        Login
+        Primary
       </button>
     </form>
+
+    <!-- Js Script  -->
+
+    <script src="./script.js"></script>
   </body>
 </html>
