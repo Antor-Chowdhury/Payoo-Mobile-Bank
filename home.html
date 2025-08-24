@@ -37,7 +37,9 @@
         <div class="flex gap-2">
           <img class="h-12" src="./assets/Group.png" alt="" />
           <div>
-            <h2 class="font-extrabold text-lg">$<span>45000</span></h2>
+            <h2 class="font-extrabold text-lg">
+              $<span id="available-balance">45000</span>
+            </h2>
             <p class="text-sm text-[#08080880]">Available Balance</p>
           </div>
         </div>
@@ -117,6 +119,7 @@
             >
             <br />
             <select
+              id="bank"
               class="select bg-[#f4f5f7] mt-3 rounded-4xl border-none font-light text-base mb-4 w-full"
             >
               <option>Select bank</option>
@@ -133,7 +136,7 @@
             >
             <br />
             <input
-              id="mobile-number"
+              id="account-number"
               type="text"
               placeholder="Enter 11 digit account number"
               class="input bg-[#f4f5f7] mt-3 mb-4 rounded-4xl px-5 py-4 border-none font-light text-base w-full"
@@ -143,7 +146,7 @@
             <label class="font-medium text-base" for="">Amount to Add</label>
             <br />
             <input
-              id="mobile-number"
+              id="add-amount"
               type="text"
               placeholder="Add Amount to withdraw"
               class="input bg-[#f4f5f7] mt-3 mb-4 rounded-4xl px-5 py-4 border-none font-light text-base w-full"
@@ -153,7 +156,7 @@
             <label class="font-medium text-base" for="">Pin Number</label>
             <br />
             <input
-              id="mobile-number"
+              id="add-pin"
               type="text"
               placeholder="Enter 4 digit pin number"
               class="input bg-[#f4f5f7] mt-3 rounded-4xl px-5 py-4 border-none font-light text-base w-full"
@@ -161,12 +164,14 @@
           </div>
           <button
             class="btn btn-active w-full mt-4 rounded-4xl bg-[#0874F2] text-white border-none font-semibold text-xl"
-            id="btn-login"
+            id="btn-addMoney"
           >
-            Login
+            Add Money
           </button>
         </form>
       </div>
     </div>
+
+    <script src="./home.js"></script>
   </body>
 </html>
