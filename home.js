@@ -1,3 +1,4 @@
+const validPin = 1234;
 document
   .getElementById("btn-addMoney")
   .addEventListener("click", function (event) {
@@ -19,6 +20,20 @@ document
     // adding the total number
 
     const totalNewAvailableBalance = addAmount + availableBalance;
+
+    //   validating account-number
+
+    if (accountNumber.length < 11) {
+      alert("please provide valid account number.");
+      return;
+    }
+
+    // validating pin-number
+
+    if (pin !== validPin) {
+      alert("please enter the correct pin number");
+      return;
+    }
 
     // updating the available balance
 
