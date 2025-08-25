@@ -267,6 +267,26 @@
       <!-- Get bonus -->
       <div class="form" id="get-bonus-parent" style="display: none">
         <h1 class="font-semibold text-lg mb-4">Bet Bonus</h1>
+        <form class="bg-white rounded-3xl p-6">
+          <div>
+            <label class="font-medium text-base" for=""
+              >Enter Bonus Coupon</label
+            >
+            <br />
+            <input
+              id="coupon"
+              type="text"
+              placeholder="Enter your coupon"
+              class="input bg-[#f4f5f7] mt-3 mb-4 rounded-4xl px-5 py-4 border-none font-light text-base w-full"
+            />
+          </div>
+          <button
+            class="btn btn-active w-full mt-4 rounded-4xl bg-[#0874F2] text-white border-none font-semibold text-xl"
+            id="btn-bonus"
+          >
+            Get Bonus
+          </button>
+        </form>
       </div>
 
       <!-- Pay Bill -->
@@ -329,6 +349,14 @@
             Pay Now
           </button>
         </form>
+      </div>
+
+      <!-- Transactions -->
+      <div class="form" id="transaction-parent" style="display: none">
+        <div class="flex justify-between">
+          <h1 class="font-semibold text-lg mb-4">Transactions</h1>
+          <p class="text-sm text-[#08080880]">View All</p>
+        </div>
       </div>
     </div>
 

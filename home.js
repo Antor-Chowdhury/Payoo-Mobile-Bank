@@ -1,4 +1,7 @@
 const validPin = 1234;
+const bonusCoupon = "venom"; // 25% bonus for more than 2000tk payBill.
+
+const transactionData = [];
 
 // Function to get input values with number
 
@@ -101,6 +104,13 @@ document
 
     setInnerText(totalNewAvailableBalance);
 
+    const data = {
+      name: "Add Money",
+      date: new Date().toLocaleTimeString(),
+    };
+
+    transactionData.push(data);
+
     // clear the input field after every add money click
 
     document.getElementById("bank").value = "";
@@ -145,6 +155,13 @@ document
     // updating the available balance
 
     setInnerText(totalNewAvailableBalance);
+
+    const data = {
+      name: "Cash Out",
+      date: new Date().toLocaleTimeString(),
+    };
+
+    transactionData.push(data);
 
     //   clearing the input field
     document.getElementById("withdraw-agent-number").value = "";
@@ -196,6 +213,14 @@ document
     document.getElementById("transfer-user-number").value = "";
     document.getElementById("transfer-amount").value = "";
     document.getElementById("transfer-pin").value = "";
+  });
+
+// ------- Get Bonus ---------
+
+document
+  .getElementById("btn-bonus")
+  .addEventListener("click", function (event) {
+    event.preventDefault();
   });
 
 // ---------- Pay Bill -------------
@@ -285,4 +310,12 @@ document
   .addEventListener("click", function () {
     handleToggle("pay-bill-parent");
     handleButtonToggle("pay-bill-button");
+  });
+
+// Transactions
+document
+  .getElementById("transaction-button")
+  .addEventListener("click", function () {
+    handleToggle("transaction-parent");
+    handleButtonToggle("transaction-button");
   });
