@@ -80,6 +80,7 @@
             <h1>Cashout</h1>
           </div>
           <div
+            id="transfer-button"
             class="border-1 border-gray-300 text-center px-3 py-5 rounded-xl"
           >
             <img class="mx-auto mb-2" src="./assets/money1.png" alt="" />
@@ -112,7 +113,7 @@
     <div class="all-form-section max-w-lg mx-auto mt-8 bg-[#f4f5f7]">
       <!-- add money -->
 
-      <div id="add-money-parent">
+      <div class="form" id="add-money-parent">
         <h1 class="font-semibold text-lg mb-4">Add Money</h1>
         <form class="bg-white rounded-3xl p-6">
           <div>
@@ -174,8 +175,7 @@
       </div>
 
       <!-- cash out -->
-
-      <div id="cash-out-parent" style="display: none">
+      <div class="form" id="cash-out-parent" style="display: none">
         <h1 class="font-semibold text-lg mb-4">Cash Out</h1>
 
         <form class="bg-white rounded-3xl p-6">
@@ -214,6 +214,49 @@
             id="btn-withdraw"
           >
             Withdraw Money
+          </button>
+        </form>
+      </div>
+
+      <!-- Transfer money -->
+      <div class="form" id="transfer-money-parent" style="display: none">
+        <h1 class="font-semibold text-lg mb-4">Transfer Money</h1>
+        <form class="bg-white rounded-3xl p-6">
+          <div>
+            <label class="font-medium text-base" for="">Agent Number</label>
+            <br />
+            <input
+              id="transfer-user-number"
+              type="text"
+              placeholder="Enter 11 digit number"
+              class="input bg-[#f4f5f7] mt-3 mb-4 rounded-4xl px-5 py-4 border-none font-light text-base w-full"
+            />
+          </div>
+          <div>
+            <label class="font-medium text-base" for="">Amount</label>
+            <br />
+            <input
+              id="transfer-amount"
+              type="text"
+              placeholder="Enter Amount to transfer"
+              class="input bg-[#f4f5f7] mt-3 mb-4 rounded-4xl px-5 py-4 border-none font-light text-base w-full"
+            />
+          </div>
+          <div>
+            <label class="font-medium text-base" for="">Pin Number</label>
+            <br />
+            <input
+              id="transfer-pin"
+              type="text"
+              placeholder="Enter 4 digit pin number"
+              class="input bg-[#f4f5f7] mt-3 rounded-4xl px-5 py-4 border-none font-light text-base w-full"
+            />
+          </div>
+          <button
+            class="btn btn-active w-full mt-4 rounded-4xl bg-[#0874F2] text-white border-none font-semibold text-xl"
+            id="btn-transfer"
+          >
+            Send Now
           </button>
         </form>
       </div>

@@ -36,6 +36,16 @@ function setInnerText(value) {
   availableBalanceElement.innerText = value;
 }
 
+// Function to toggle
+
+function handleToggle(id) {
+  const forms = document.getElementsByClassName("form");
+  for (const form of forms) {
+    form.style.display = "none";
+  }
+  document.getElementById(id).style.display = "block";
+}
+
 // --- Add money Feature ----
 document
   .getElementById("btn-addMoney")
@@ -126,20 +136,70 @@ document
     document.getElementById("withdraw-pin").value = "";
   });
 
+// --------- Transfer Amount Feature ------
+
+document
+  .getElementById("btn-transfer")
+  .addEventListener("click", function (event) {
+    event.preventDefault();
+
+    // getting the value of the input field
+
+    const agentNumber = getInputValue("transfer-user-number");
+    const transferAmount = getInputValueNumber("transfer-amount");
+    const pin = getInputValueNumber("transfer-pin");
+
+    // getting the total amount
+
+    const availableBalance = getInnerText("available-balance");
+
+    // withdrawing form the total amount
+
+    const totalNewAvailableBalance = availableBalance - transferAmount;
+
+    //   validating account-number
+
+    if (agentNumber.length < 11) {
+      alert("please provide valid agent number.");
+      return;
+    }
+
+    // validating pin-number
+
+    if (pin !== validPin) {
+      alert("Invalid pin number!!");
+      return;
+    }
+
+    // updating the available balance
+
+    setInnerText(totalNewAvailableBalance);
+
+    // clear the input field after every add money click
+
+    document.getElementById("transfer-user-number").value = "";
+    document.getElementById("transfer-amount").value = "";
+    document.getElementById("transfer-pin").value = "";
+  });
+
 // ---- toggling feature -----
 
 // for add-money
 document.getElementById("add-button").addEventListener("click", function () {
-  document.getElementById("cash-out-parent").style.display = "none"; // hiding the cash-out form
-
-  document.getElementById("add-money-parent").style.display = "block"; // showing the add-money form
+  handleToggle("add-money-parent");
 });
 
 // for withdraw money
 document
   .getElementById("cash-out-button")
   .addEventListener("click", function () {
-    document.getElementById("add-money-parent").style.display = "none"; // hiding the add-money form
+    handleToggle("cash-out-parent");
+  });
 
-    document.getElementById("cash-out-parent").style.display = "block"; // showing the withdraw form
+// for transfer money
+
+document
+  .getElementById("transfer-button")
+  .addEventListener("click", function () {
+    handleToggle("transfer-money-parent");
   });
