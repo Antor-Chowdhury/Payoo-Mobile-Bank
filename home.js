@@ -182,6 +182,54 @@ document
     document.getElementById("transfer-pin").value = "";
   });
 
+// ---------- Pay Bill -------------
+
+document
+  .getElementById("btn-pay-now")
+  .addEventListener("click", function (event) {
+    event.preventDefault();
+
+    // get input
+
+    const payMethod = getInputValue("pay-method");
+    const billerAccount = getInputValue("biller-account-number");
+    const paymentAmount = getInputValueNumber("pay-amount");
+    const pin = getInputValueNumber("pay-pin");
+
+    // getting the total amount
+
+    const availableBalance = getInnerText("available-balance");
+
+    // adding the total number
+
+    const totalNewAvailableBalance = availableBalance - paymentAmount;
+
+    //   validating account-number
+
+    if (billerAccount.length < 11) {
+      alert("please provide valid account number.");
+      return;
+    }
+
+    // validating pin-number
+
+    if (pin !== validPin) {
+      alert("please enter the correct pin number");
+      return;
+    }
+
+    // updating the available balance
+
+    setInnerText(totalNewAvailableBalance);
+
+    // clear the input field after every add money click
+
+    document.getElementById("pay-method").value = "";
+    document.getElementById("biller-account-number").value = "";
+    document.getElementById("pay-amount").value = "";
+    document.getElementById("pay-pin").value = "";
+  });
+
 // ---- toggling feature -----
 
 // for add-money
@@ -202,4 +250,18 @@ document
   .getElementById("transfer-button")
   .addEventListener("click", function () {
     handleToggle("transfer-money-parent");
+  });
+
+// for Get Bonus
+
+document.getElementById("bonus-button").addEventListener("click", function () {
+  handleToggle("get-bonus-parent");
+});
+
+// pay bill
+
+document
+  .getElementById("pay-bill-button")
+  .addEventListener("click", function () {
+    handleToggle("pay-bill-parent");
   });
