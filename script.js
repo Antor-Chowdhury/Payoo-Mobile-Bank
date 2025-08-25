@@ -21,7 +21,7 @@ document
     ) {
       window.location.href = "./home.html";
     } else {
-      alert("Invalid credential");
+      alert("Invalid credential!");
     }
 
     // clears the input value each time

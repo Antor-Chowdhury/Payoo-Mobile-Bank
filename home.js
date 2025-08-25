@@ -99,6 +99,7 @@ document
   });
 
 // ---- toggling feature -----
+
 // for add-money
 document.getElementById("add-button").addEventListener("click", function () {
   document.getElementById("cash-out-parent").style.display = "none"; // hiding the cash-out form
