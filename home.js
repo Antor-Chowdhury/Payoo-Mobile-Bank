@@ -1,5 +1,24 @@
 const validPin = 1234;
 
+// Function to get input values with number
+
+function getInputValueNumber(id) {
+  const inputField = document.getElementById(id);
+  const inputFieldValue = inputField.value;
+  const inputFieldValueNumber = parseInt(inputFieldValue);
+
+  return inputFieldValueNumber;
+}
+
+// Function to get input values without number
+
+function getInputValue(id) {
+  const inputField = document.getElementById(id);
+  const inputFieldValue = inputField.value;
+
+  return inputFieldValue;
+}
+
 // --- Add money Feature ----
 document
   .getElementById("btn-addMoney")
@@ -8,10 +27,10 @@ document
 
     // getting the value of the input field
 
-    const bank = document.getElementById("bank").value;
-    const accountNumber = document.getElementById("account-number").value;
-    const addAmount = parseInt(document.getElementById("add-amount").value);
-    const pin = parseInt(document.getElementById("add-pin").value);
+    const bank = getInputValue("bank");
+    const accountNumber = getInputValue("account-number");
+    const addAmount = getInputValueNumber("add-amount");
+    const pin = getInputValueNumber("add-pin");
 
     // getting the total amount
 
@@ -59,11 +78,9 @@ document
 
     // getting the input value
 
-    const agentNumber = document.getElementById("withdraw-agent-number").value;
-    const withdrawAmount = parseInt(
-      document.getElementById("withdraw-amount").value
-    );
-    const pin = parseInt(document.getElementById("withdraw-pin").value);
+    const agentNumber = getInputValue("withdraw-agent-number");
+    const withdrawAmount = getInputValueNumber("withdraw-amount");
+    const pin = getInputValueNumber("withdraw-pin");
 
     // getting the total amount
 
