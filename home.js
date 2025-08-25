@@ -19,6 +19,23 @@ function getInputValue(id) {
   return inputFieldValue;
 }
 
+// Function to get innerText
+
+function getInnerText(id) {
+  const element = document.getElementById(id);
+  const elementValue = element.innerText;
+  const elementValueNumber = parseInt(elementValue);
+
+  return elementValueNumber;
+}
+
+// Function to set innerText
+
+function setInnerText(value) {
+  const availableBalanceElement = document.getElementById("available-balance");
+  availableBalanceElement.innerText = value;
+}
+
 // --- Add money Feature ----
 document
   .getElementById("btn-addMoney")
@@ -34,9 +51,7 @@ document
 
     // getting the total amount
 
-    const availableBalance = parseInt(
-      document.getElementById("available-balance").innerText
-    );
+    const availableBalance = getInnerText("available-balance");
 
     // adding the total number
 
@@ -58,8 +73,7 @@ document
 
     // updating the available balance
 
-    document.getElementById("available-balance").innerText =
-      totalNewAvailableBalance;
+    setInnerText(totalNewAvailableBalance);
 
     // clear the input field after every add money click
 
@@ -84,9 +98,7 @@ document
 
     // getting the total amount
 
-    const availableBalance = parseInt(
-      document.getElementById("available-balance").innerText
-    );
+    const availableBalance = getInnerText("available-balance");
 
     // withdrawing form the total amount
 
@@ -106,8 +118,7 @@ document
 
     // updating the available balance
 
-    document.getElementById("available-balance").innerText =
-      totalNewAvailableBalance;
+    setInnerText(totalNewAvailableBalance);
 
     //   clearing the input field
     document.getElementById("withdraw-agent-number").value = "";
