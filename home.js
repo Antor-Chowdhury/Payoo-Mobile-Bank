@@ -104,6 +104,8 @@ document
 
     setInnerText(totalNewAvailableBalance);
 
+    // Transaction feature
+
     const data = {
       name: "Add Money",
       date: new Date().toLocaleTimeString(),
@@ -155,6 +157,8 @@ document
     // updating the available balance
 
     setInnerText(totalNewAvailableBalance);
+
+    // Transaction part
 
     const data = {
       name: "Cash Out",
@@ -208,6 +212,15 @@ document
 
     setInnerText(totalNewAvailableBalance);
 
+    // Transaction feature
+
+    const data = {
+      name: "Transfer Money",
+      date: new Date().toLocaleTimeString(),
+    };
+
+    transactionData.push(data);
+
     // clear the input field after every add money click
 
     document.getElementById("transfer-user-number").value = "";
@@ -222,6 +235,15 @@ document
   .addEventListener("click", function (event) {
     event.preventDefault();
   });
+
+// Transaction feature
+
+const data = {
+  name: "Get Bonus",
+  date: new Date().toLocaleTimeString(),
+};
+
+transactionData.push(data);
 
 // ---------- Pay Bill -------------
 
@@ -263,12 +285,52 @@ document
 
     setInnerText(totalNewAvailableBalance);
 
+    // Transaction feature
+
+    const data = {
+      name: "Pay Bill",
+      date: new Date().toLocaleTimeString(),
+    };
+
+    transactionData.push(data);
+
     // clear the input field after every add money click
 
     document.getElementById("pay-method").value = "";
     document.getElementById("biller-account-number").value = "";
     document.getElementById("pay-amount").value = "";
     document.getElementById("pay-pin").value = "";
+  });
+
+// Transaction Feature
+
+document
+  .getElementById("transaction-button")
+  .addEventListener("click", function () {
+    const transactionContainer = document.getElementById(
+      "transaction-container"
+    );
+    transactionContainer.innerText = "";
+    for (const data of transactionData) {
+      const div = document.createElement("div");
+      div.innerHTML = `
+                <div
+            class="bg-white rounded-xl p-3 flex justify-between items-center mt-3"
+          >
+            <div class="flex items-center">
+              <div class="p-3 rounded-full bg-[#f4f5f7]">
+                <img src="./assets/purse1.png" alt="" />
+              </div>
+              <div class="ml-3">
+                <h1>${data.name}</h1>
+                <p>${data.date}</p>
+              </div>
+            </div>
+            <div><i class="fa-solid fa-ellipsis-vertical"></i></div>
+          </div>`;
+
+      transactionContainer.appendChild(div);
+    }
   });
 
 // ---- toggling feature -----
