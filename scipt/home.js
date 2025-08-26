@@ -1,5 +1,5 @@
 const validPin = 1234;
-const bonusCoupon = "venom"; // 25% bonus for more than 2000tk payBill.
+const bonusCoupon = "venom"; // 5% bonus for more than 2000tk payBill.
 
 const transactionData = [];
 
