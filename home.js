@@ -66,6 +66,7 @@ function handleButtonToggle(id) {
 }
 
 // --- Add money Feature ----
+
 document
   .getElementById("btn-addMoney")
   .addEventListener("click", function (event) {
@@ -77,6 +78,13 @@ document
     const accountNumber = getInputValue("account-number");
     const addAmount = getInputValueNumber("add-amount");
     const pin = getInputValueNumber("add-pin");
+
+    // validating Amount to Add
+
+    if (addAmount <= 0) {
+      alert("Invalid Amount");
+      return;
+    }
 
     // getting the total amount
 
@@ -111,6 +119,9 @@ document
       date: new Date().toLocaleTimeString(),
     };
 
+    // Save to localStorage
+    localStorage.setItem("transactions", JSON.stringify(transactionData));
+
     transactionData.push(data);
 
     // clear the input field after every add money click
@@ -137,6 +148,13 @@ document
     // getting the total amount
 
     const availableBalance = getInnerText("available-balance");
+
+    // validating Amount to withdraw
+
+    if (withdrawAmount <= 0 || withdrawAmount > availableBalance) {
+      alert("Invalid Amount");
+      return;
+    }
 
     // withdrawing form the total amount
 
@@ -234,16 +252,48 @@ document
   .getElementById("btn-bonus")
   .addEventListener("click", function (event) {
     event.preventDefault();
+
+    // get coupon input value
+    const enteredCoupon = getInputValue("coupon");
+    const availableBalance = getInnerText("available-balance");
+
+    // check if input is empty
+    if (enteredCoupon === "") {
+      alert("Please enter a coupon code!");
+      return;
+    }
+
+    // validate coupon
+    if (enteredCoupon.toLowerCase() === bonusCoupon) {
+      // Check if balance is more than 2000 for 5% bonus
+      if (availableBalance > 2000) {
+        const bonusAmount = Math.floor(availableBalance * 0.05); // 5% bonus
+        const totalNewAvailableBalance = availableBalance + bonusAmount;
+
+        // update balance
+        setInnerText(totalNewAvailableBalance);
+
+        // add transaction
+        const data = {
+          name: `Bonus Applied: +${bonusAmount} TK`,
+          date: new Date().toLocaleTimeString(),
+        };
+        transactionData.push(data);
+        localStorage.setItem("transactions", JSON.stringify(transactionData));
+
+        alert(`🎉 Coupon Applied! You received ${bonusAmount} TK bonus.`);
+      } else {
+        alert("Balance must be more than 2000 TK to apply this bonus.");
+      }
+    } else {
+      alert("❌ Invalid coupon code.");
+    }
+
+    // clear input after submission
+    document.getElementById("coupon").value = "";
   });
 
 // Transaction feature
-
-const data = {
-  name: "Get Bonus",
-  date: new Date().toLocaleTimeString(),
-};
-
-transactionData.push(data);
 
 // ---------- Pay Bill -------------
 
@@ -381,3 +431,9 @@ document
     handleToggle("transaction-parent");
     handleButtonToggle("transaction-button");
   });
+
+// Log-out to home page
+
+document.getElementById("btn-logout").addEventListener("click", function () {
+  window.location.href = "./index.html";
+});
