@@ -74,6 +74,15 @@ Follow these steps to set up the project locally:
 
 3. Open the index.html file in your browser.
 
+## Demo Login
+
+For testing the application, use the following demo credentials:
+
+```bash
+Mobile Number: 1235678901
+PIN: 1234
+```
+
 ## 📂 Project Structure
 
 ```bash
