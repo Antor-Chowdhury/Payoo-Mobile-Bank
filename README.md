@@ -12,7 +12,7 @@ It features secure login, add money, cash out, transfer, bill payments, bonuses,
 
 ## 🚀 Live Demo
 
-🌐 **[View Payoo App](#)** (Add your GitHub Pages or Netlify link here)
+🌐 **[View Payoo App](#)** (https://antor-chowdhury.github.io/Payoo-Mobile-Bank/)
 
 ---
 
@@ -64,7 +64,7 @@ Follow these steps to set up the project locally:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/payoo-app.git
+   git clone https://github.com/Antor-Chowdhury/Payoo-Mobile-Bank.git
    ```
 2. Navigate to the project folder:
 
